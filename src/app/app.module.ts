@@ -3,15 +3,9 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { UploadComponent } from "./upload/upload.component";
-
-import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { AngularFireStorageModule } from "@angular/fire/storage";
-import { AngularFireAuthModule } from "@angular/fire/auth";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MainNavComponent } from "./main-nav/main-nav.component";
 import { LayoutModule } from "@angular/cdk/layout";
+
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -20,6 +14,17 @@ import {
   MatListModule,
   MatDialogModule
 } from "@angular/material";
+
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireModule } from "@angular/fire";
+
+import { Keys } from "../../keys";
+
+import { AppComponent } from "./app.component";
+import { UploadComponent } from "./upload/upload.component";
+import { MainNavComponent } from "./main-nav/main-nav.component";
 import { BannerComponent } from "./banner/banner.component";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { AboutPageComponent } from "./about-page/about-page.component";
@@ -45,6 +50,7 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
+    AngularFireModule.initializeApp(Keys.firebase),
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
