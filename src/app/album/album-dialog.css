@@ -1,0 +1,19 @@
+.container {
+  text-align: center;
+  height: 100%;
+}
+
+.container h4 {
+  margin: 0.2em;
+}
+
+.image {
+  margin: 0 auto;
+  max-height: 425px;
+  max-width: 425px;
+}
+
+.image img {
+  max-width: 100%;
+  max-height: 100%;
+}
