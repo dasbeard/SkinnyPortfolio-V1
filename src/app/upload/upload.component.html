@@ -1,12 +1,42 @@
 <div class="container">
   <h1>Upload File</h1>
 
-  <input
-    type="file"
-    style="display:none"
-    (change)="onFileSelected($event)"
-    #fileInput
-  />
-  <button type="button" (click)="fileInput.click()">Pick File</button>
-  <button type="button" (click)="onUpload()">Upload</button>
+  <form [formGroup]="newAlbum" (ngSubmit)="onSubmit()">
+    <input type="file" (change)="onFileSelected($event)" #fileInput />
+    <img #albumCover src="#" />
+
+    <mat-form-field>
+      <input matInput placeholder="Artist" formControlName="artist" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Album" formControlName="album" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Year Released"
+        formControlName="year"
+        required
+        maxlength="4"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Credits"
+        formControlName="credits"
+        required
+      />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="!newAlbum.valid">
+      Submit
+    </button>
+  </form>
+
+  <hr />
+
+  {{ newAlbum.value | json }}
+  <p>Form Status: {{ newAlbum.status }}</p>
 </div>
