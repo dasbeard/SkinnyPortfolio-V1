@@ -3,7 +3,6 @@ export class AlbumModel {
   album?: string;
   artist?: string;
   image?: string;
-  image2?: string;
   year?: number;
   credits?: [Credits];
 }

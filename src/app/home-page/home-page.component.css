@@ -1,20 +1,18 @@
-.container {
-  /* margin: 5px 0; */
-}
 app-banner {
   width: 100%;
   display: block;
+  height: 100px;
 }
 
-.albums {
-  /* margin-top: 150px; */
+.contain {
   margin-top: 20px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-app-album {
-  width: 31%;
+.albums {
+  width: 30%;
   margin-bottom: 20px;
 }

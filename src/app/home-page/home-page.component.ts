@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
-import { AlbumModel } from "src/models/Album";
+import { AlbumModel } from "../../models/Album";
+
 import { Observable } from "rxjs";
 
 @Component({

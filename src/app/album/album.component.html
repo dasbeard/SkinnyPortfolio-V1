@@ -1,8 +1,7 @@
-<div class="container" (click)="openDialog()">
+<div class="container" (click)="openDialog()" *ngIf="albumInfo != null">
   <div class="image">
-    <img src="../../assets/ zedd.jpg" alt="" />
+    <img src="{{ albumInfo.image }}" alt="" />
   </div>
 
-  <p class="artist">Artist Name Featuring Artist Name</p>
-  <p class="album">Album Title</p>
+  <p class="artist">{{ albumInfo.artist }} - {{ albumInfo.album }}</p>
 </div>

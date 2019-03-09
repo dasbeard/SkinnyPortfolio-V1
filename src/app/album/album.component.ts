@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Input } from "@angular/core";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
+import { AlbumModel } from "src/models/Album";
 
 export interface DialogData {
-  animal: "unicorn" | "panda" | "lion";
+  album: AlbumModel;
 }
 
 @Component({
@@ -11,16 +12,18 @@ export interface DialogData {
   styleUrls: ["./album.component.css"]
 })
 export class AlbumComponent implements OnInit {
+  @Input() albumInfo: AlbumModel;
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {}
 
   openDialog() {
     this.dialog.open(AlbumDialog, {
-      width: "50%",
-
+      minWidth: "50%",
+      maxWidth: "85%",
       data: {
-        animal: "panda"
+        album: this.albumInfo
       }
     });
   }

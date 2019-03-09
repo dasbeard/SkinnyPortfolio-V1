@@ -1,10 +1,20 @@
 <!-- <h1 mat-dialog-title>Artist Name Featuring Artist Name</h1> -->
 <div mat-dialog-content class="container">
   <div class="image">
-    <img src="../../assets/ zedd.jpg" alt="" />
+    <img src="{{ data.album.image }}" alt="" />
   </div>
 
-  <h4>Artist Name Featuring Artist Name</h4>
-  <h4>Album Title / Year</h4>
-  <h4>Credits, Credits, Credits, Credits, Credits,</h4>
+  <h4>{{ data.album.artist }}</h4>
+  <h4>{{ data.album.album }} / {{ data.album.year }}</h4>
+  <div class="credits">
+    <h4 *ngFor="let credit of data.album.credits">
+      {{ credit }}
+    </h4>
+  </div>
+
+  <!-- 
+
+
+
+ -->
 </div>

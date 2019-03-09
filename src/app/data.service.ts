@@ -27,9 +27,6 @@ export class DataService {
 
   getAllAlbums() {
     console.log("Get All Albums Called");
-    // this.albumCollection = this.afs.collection<AlbumModel>(
-    //   "albums"
-    // );
     this.allAlbums = this.albumCollection.snapshotChanges().pipe(
       map(action =>
         action.map(a => {
@@ -40,5 +37,9 @@ export class DataService {
       )
     );
     return this.allAlbums;
+  }
+
+  addNewAlbum(data) {
+    console.log(data);
   }
 }
