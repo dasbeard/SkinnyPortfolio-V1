@@ -25,11 +25,6 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { AboutPageComponent } from "./about-page/about-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { AlbumComponent, AlbumDialog } from "./album/album.component";
-import { TempComponent } from './temp/temp.component';
-
-// Album Dialog
-// import { AlbumDialog } from "src/app/album/album.component";
-// import { AlbumDialog } from "src/app/album/album.component";
 
 @NgModule({
   declarations: [
@@ -41,8 +36,7 @@ import { TempComponent } from './temp/temp.component';
     AboutPageComponent,
     ContactPageComponent,
     AlbumComponent,
-    AlbumDialog,
-    TempComponent
+    AlbumDialog
   ],
   imports: [
     BrowserModule,
