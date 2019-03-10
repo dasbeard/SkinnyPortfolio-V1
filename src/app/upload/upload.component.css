@@ -1,7 +1,62 @@
-.container img {
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  outline: 1px solid green;
+}
+
+/* .container img {
   min-height: 200px;
   min-width: 200px;
   max-height: 200px;
   max-width: 200px;
   outline: 1px solid red;
+} */
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "artist image"
+    "album image"
+    "year image"
+    "credits file"
+    "btn btn";
+}
+
+.artist {
+  grid-area: artist;
+}
+
+.album {
+  grid-area: album;
+}
+
+.year {
+  grid-area: year;
+}
+
+.credits {
+  grid-area: credits;
+}
+
+.file {
+  grid-area: file;
+}
+
+.image {
+  grid-area: image;
+}
+
+img {
+  min-height: 200px;
+  min-width: 200px;
+  max-height: 200px;
+  max-width: 200px;
+  outline: 1px solid red;
+}
+
+.btn {
+  grid-area: btn;
 }

@@ -19,12 +19,14 @@ export class UploadComponent implements OnInit {
 
   uploadError = "";
   image = null;
+  reader;
 
   newAlbum = this.fb.group({
     artist: ["", Validators.required],
     album: ["", Validators.required],
     year: ["", Validators.required],
-    credits: ["", Validators.required]
+    credits: ["", Validators.required],
+    image: ["", Validators.required]
   });
 
   // TODO: Dynamically add more 'credits' inputs on button and push them to an array before sending them to firebase
@@ -33,30 +35,18 @@ export class UploadComponent implements OnInit {
 
   ngOnInit() {}
 
-  onFileSelected(event) {
-    // console.log(event);
-    // this.selectedFile = <File>event.target.files[0];
-    // console.log(this.selectedFile);
+  imagePreview(event) {
+    this.reader = new FileReader();
 
-    let reader = new FileReader();
-    // this.image = event.target.files[0];
-
-    reader.onload = e => {
+    this.reader.onload = e => {
       this.albumCover.nativeElement.src = e.target["result"];
     };
-    reader.readAsDataURL(event.target.files[0]);
-
-    // let filesize = this.image.size / 1024 / 1024; // MB
-    // if (filesize > 2)
-    //   this.uploadError = `File too large, max size is 2 MB but yours is ${Number(
-    //     filesize
-    //   ).toFixed(2)} MB.`;
-    // else this.uploadError = "";
+    this.reader.readAsDataURL(event.target.files[0]);
   }
 
   onSubmit() {
     console.log("submitted");
-    console.log(this.newAlbum.value);
+    console.log(this.newAlbum);
   }
 
   //  !! This is to a Firebase Function

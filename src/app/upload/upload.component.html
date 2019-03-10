@@ -1,19 +1,41 @@
 <div class="container">
-  <h1>Upload File</h1>
+  <h1>Upload New Album</h1>
 
   <form [formGroup]="newAlbum" (ngSubmit)="onSubmit()">
-    <input type="file" (change)="onFileSelected($event)" #fileInput />
-    <img #albumCover src="#" />
+    <img class="image" #albumCover src="#" />
+    <!-- <img *ngIf="reader" #albumCover src="#" /> -->
+
+    <input
+      class="file"
+      type="file"
+      (change)="imagePreview($event)"
+      #fileInput
+      formControlName="image"
+    />
 
     <mat-form-field>
-      <input matInput placeholder="Artist" formControlName="artist" required />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Album" formControlName="album" required />
+      <input
+        matInput
+        class="artist"
+        placeholder="Artist"
+        formControlName="artist"
+        required
+      />
     </mat-form-field>
     <mat-form-field>
       <input
         matInput
+        class="album"
+        placeholder="Album"
+        formControlName="album"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        class="year"
+        type="number"
         placeholder="Year Released"
         formControlName="year"
         required
@@ -24,19 +46,25 @@
     <mat-form-field>
       <input
         matInput
+        class="credits"
         placeholder="Credits"
         formControlName="credits"
         required
       />
     </mat-form-field>
 
-    <button mat-raised-button type="submit" [disabled]="!newAlbum.valid">
+    <button
+      mat-raised-button
+      class="btn"
+      type="submit"
+      [disabled]="!newAlbum.valid"
+    >
       Submit
     </button>
   </form>
 
-  <hr />
+  <!-- <hr />
 
   {{ newAlbum.value | json }}
-  <p>Form Status: {{ newAlbum.status }}</p>
+  <p>Form Status: {{ newAlbum.status }}</p> -->
 </div>
