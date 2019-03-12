@@ -1,69 +1,98 @@
 <div class="container">
-  <h1>Upload New Album</h1>
+  <h1>
+    Upload New Album
+    <hr />
+    <mat-progress-bar
+      mode="determinate"
+      [value]="uploadPercent | async"
+      color="accent"
+    ></mat-progress-bar>
 
-  <form [formGroup]="newAlbum" (ngSubmit)="onSubmit()">
-    <img class="image" #albumCover src="#" />
-    <!-- <img *ngIf="reader" #albumCover src="#" /> -->
+    <hr />
+    {{ downloadURL | async }} -- {{ uploadPercent | async }}
+  </h1>
 
-    <input
-      class="file"
-      type="file"
-      (change)="imagePreview($event)"
-      #fileInput
-      formControlName="image"
-    />
+  <form class="formContainer" [formGroup]="newAlbum" (ngSubmit)="onSubmit()">
+    <div class="input">
+      <mat-form-field>
+        <input
+          matInput
+          class="artist"
+          placeholder="Artist"
+          formControlName="artist"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          class="album"
+          placeholder="Album"
+          formControlName="album"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          class="year"
+          type="number"
+          placeholder="Year Released"
+          formControlName="year"
+          required
+          maxlength="4"
+          minlength="4"
+        />
+      </mat-form-field>
 
-    <mat-form-field>
-      <input
-        matInput
-        class="artist"
-        placeholder="Artist"
-        formControlName="artist"
-        required
+      <mat-form-field>
+        <input
+          matInput
+          class="credits"
+          placeholder="Credits"
+          formControlName="credits"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="imageUpload">
+      <img
+        *ngIf="!reader"
+        class="image"
+        #albumCover
+        src="../../assets/AddImageHere.png"
       />
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        class="album"
-        placeholder="Album"
-        formControlName="album"
-        required
-      />
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        class="year"
-        type="number"
-        placeholder="Year Released"
-        formControlName="year"
-        required
-        maxlength="4"
-      />
-    </mat-form-field>
+      <img *ngIf="reader" class="image" #albumCover src="#" />
 
-    <mat-form-field>
       <input
-        matInput
-        class="credits"
-        placeholder="Credits"
-        formControlName="credits"
-        required
+        class="file"
+        type="file"
+        style="display: none"
+        (change)="imagePreview($event)"
+        #fileInput
+        formControlName="image"
       />
-    </mat-form-field>
+      <button
+        mat-raised-button
+        type="button"
+        class="fileBtn"
+        (click)="fileInput.click()"
+      >
+        Choose File
+      </button>
+    </div>
 
-    <button
-      mat-raised-button
-      class="btn"
-      type="submit"
-      [disabled]="!newAlbum.valid"
-    >
+    <button mat-raised-button class="btn" type="submit">
       Submit
     </button>
   </form>
 
+  <hr />
+
   <!-- <hr />
+
+[disabled]="!newAlbum.valid"
 
   {{ newAlbum.value | json }}
   <p>Form Status: {{ newAlbum.status }}</p> -->

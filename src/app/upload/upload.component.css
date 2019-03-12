@@ -1,19 +1,71 @@
 .container {
   width: 80%;
   max-width: 900px;
-  margin: 0 auto;
-  outline: 1px solid green;
+  margin: 4em auto 0;
+  /* outline: 1px solid green; */
+  padding: 0 2em;
 }
 
-/* .container img {
-  min-height: 200px;
-  min-width: 200px;
-  max-height: 200px;
-  max-width: 200px;
-  outline: 1px solid red;
-} */
+.container h1 {
+  text-align: center;
+  margin-bottom: 1.25em;
+}
 
-form {
+.formContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 55px;
+  grid-template-areas:
+    "input image"
+    "btn btn";
+}
+
+.input {
+  grid-area: input;
+  /* outline: 1px solid yellow; */
+}
+
+.input mat-form-field {
+  display: block;
+}
+
+.imageUpload {
+  grid-area: image;
+  /* outline: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  display: block;
+  /* outline: 1px solid cyan; */
+}
+
+.file {
+  display: block;
+  /* outline: 1px solid pink; */
+  /* width: 225px; */
+}
+
+.fileBtn {
+  margin: 1em;
+}
+
+img {
+  min-height: 225px;
+  min-width: 225px;
+  max-height: 225px;
+  max-width: 225px;
+  /* outline: 1px solid red; */
+}
+
+.btn {
+  grid-area: btn;
+  margin-top: 1.5em;
+}
+/* .
+formContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, 1fr);
@@ -43,20 +95,15 @@ form {
 
 .file {
   grid-area: file;
+  margin-left: 5em;
 }
 
 .image {
   grid-area: image;
-}
-
-img {
-  min-height: 200px;
-  min-width: 200px;
-  max-height: 200px;
-  max-width: 200px;
-  outline: 1px solid red;
+  margin-left: 5em;
 }
 
 .btn {
   grid-area: btn;
 }
+ */

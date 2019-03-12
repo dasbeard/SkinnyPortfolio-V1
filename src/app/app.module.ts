@@ -15,11 +15,12 @@ import {
   MatListModule,
   MatDialogModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressBarModule
 } from "@angular/material";
 
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFireStorageModule, StorageBucket } from "@angular/fire/storage";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireModule } from "@angular/fire";
 
@@ -64,6 +65,7 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    MatProgressBarModule,
     ReactiveFormsModule
   ],
   providers: [],
