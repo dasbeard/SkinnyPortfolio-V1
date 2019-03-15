@@ -1,15 +1,15 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { HttpClient, HttpEventType } from "@angular/common/http";
+import { Component, OnInit, ViewChild, Input } from "@angular/core";
 import {
   FormControl,
   FormGroup,
   FormBuilder,
-  Validators
+  Validators,
+  FormGroupDirective,
+  FormArray
 } from "@angular/forms";
 import { DataService } from "../data.service";
-import { AngularFireStorage } from "@angular/fire/storage";
 import { Observable } from "rxjs";
-import { map, switchMap, finalize } from "rxjs/operators";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "app-upload",
@@ -17,18 +17,20 @@ import { map, switchMap, finalize } from "rxjs/operators";
   styleUrls: ["./upload.component.css"]
 })
 export class UploadComponent implements OnInit {
-  selectedFile: File = null;
-  fd = new FormData();
+  // @Input() inputArray: ArrayType[];
+  // myForm: FormGroup;
 
   @ViewChild("albumCover") albumCover;
+
+  selectedFile: File = null;
 
   uploadError = "";
   image = null;
   reader;
 
+  showProgressBar: boolean = false;
   uploadPercent: Observable<number>;
-  // downloadURL: Observable<string>;
-  downloadURL;
+  // uploadPercent: number;
 
   // !! Fix Error when using validator for max/min length
   newAlbum = this.fb.group({
@@ -42,13 +44,10 @@ export class UploadComponent implements OnInit {
   // TODO: Dynamically add more 'credits' inputs on button and push them to an array before sending them to firebase
 
   constructor(
-    private http: HttpClient,
     private fb: FormBuilder,
     private dataService: DataService,
-    private storage: AngularFireStorage
-  ) {
-    this.downloadURL = this.dataService.downloadURL;
-  }
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {}
 
@@ -63,57 +62,43 @@ export class UploadComponent implements OnInit {
     this.reader.readAsDataURL(event.target.files[0]);
   }
 
-  onSubmit() {
-    console.log("submitted");
+  onSubmit(formDirective: FormGroupDirective): void {
+    // console.log("submitted");
+    this.showProgressBar = true;
     let uploadAlbum = this.newAlbum.value;
     uploadAlbum.image = this.selectedFile;
 
     this.dataService.uploadAlbum(uploadAlbum);
-    this.uploadPercent = this.dataService.uploadPercent;
-    // this.downloadURL = this.dataService.downloadURL;
-
-    // const file = uploadAlbum.image;
-    // const date = new Date().toISOString();
-
-    // const filePath = `Originals/${file.name}-${date}`; // This is the name of the file to upload
-    // const fileRef = this.storage.ref(filePath);
-    // const task = this.storage.upload(filePath, file);
-
-    // // observe percentage changes
-    // this.uploadPercent = task.percentageChanges();
-    // // get notified when the download URL is available
-
-    // task
-    //   .snapshotChanges()
-    //   .pipe(finalize(() => (this.downloadURL = fileRef.getDownloadURL())))
-    //   .subscribe(value => {
-    //     console.log(
-    //       Math.round((value.bytesTransferred / value.totalBytes) * 100)
-    //     );
-    //     console.log(this.downloadURL);
-    //   });
+    // this.uploadPercent = this.dataService.uploadPercent;
+    this.dataService.uploadPercent.subscribe(data => {
+      console.log(data);
+      this.uploadPercent = this.dataService.uploadPercent;
+      if (data === 100) {
+        // this.openSnackBar();
+      }
+    });
+    formDirective.resetForm();
   }
 
-  //  !! This is to a Firebase Function
-  onUpload() {
-    // const fd = new FormData();
-    // this.fd.append("image", this.selectedFile, this.selectedFile.name);
-    // this.http
-    //   // !! Need to change <url>
-    //   .post("<url>", fd, {
-    //     reportProgress: true,
-    //     observe: "events"
-    //   })
-    //   .subscribe(event => {
-    //     if (event.type === HttpEventType.UploadProgress) {
-    //       console.log(
-    //         "Upload Progress " +
-    //           Math.round((event.loaded / event.total) * 100) +
-    //           "%"
-    //       );
-    //     } else if (event.type === HttpEventType.Response) {
-    //       console.log(event);
-    //     }
-    //   });
+  openSnackBar() {
+    this.snackBar.openFromComponent(uploadSnackBar, {
+      duration: 800
+    });
   }
 }
+
+/* 
+  !! Limits file size to smaller than 2MB
+
+    if(this.files[0].size > 2097152){
+       alert("File is too big!");
+       this.value = "";
+    };
+*/
+
+@Component({
+  selector: "uploadSnackBar",
+  templateUrl: "uploadSnackBar.html",
+  styleUrls: ["./uploadSnackBar.css"]
+})
+export class uploadSnackBar {}

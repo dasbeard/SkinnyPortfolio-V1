@@ -2,17 +2,16 @@
   <h1>
     Upload New Album
     <hr />
-    <mat-progress-bar
-      mode="determinate"
-      [value]="uploadPercent | async"
-      color="accent"
-    ></mat-progress-bar>
 
-    <hr />
-    {{ downloadURL | async }} -- {{ uploadPercent | async }}
+    <!-- {{ uploadPercent | async }} -- {{ downloadURL | async }} -->
   </h1>
 
-  <form class="formContainer" [formGroup]="newAlbum" (ngSubmit)="onSubmit()">
+  <form
+    class="formContainer"
+    [formGroup]="newAlbum"
+    #formDirective="ngForm"
+    (ngSubmit)="onSubmit(formDirective)"
+  >
     <div class="input">
       <mat-form-field>
         <input
@@ -72,6 +71,7 @@
         (change)="imagePreview($event)"
         #fileInput
         formControlName="image"
+        data-max-size="2mb"
       />
       <button
         mat-raised-button
@@ -83,17 +83,29 @@
       </button>
     </div>
 
-    <button mat-raised-button class="btn" type="submit">
+    <button
+      mat-raised-button
+      class="btn"
+      type="submit"
+      [disabled]="!newAlbum.valid"
+    >
       Submit
     </button>
   </form>
 
-  <hr />
+  <ng-container *ngIf="(uploadPercent | async); let uploadPercent">
+    <mat-progress-bar
+      mode="determinate"
+      *ngIf="uploadPercent !== 100"
+      [value]="uploadPercent"
+    ></mat-progress-bar>
+  </ng-container>
 
-  <!-- <hr />
-
-[disabled]="!newAlbum.valid"
-
-  {{ newAlbum.value | json }}
-  <p>Form Status: {{ newAlbum.status }}</p> -->
+  <!-- <mat-progress-bar
+    class="progressBar"
+    mode="determinate"
+    [value]="uploadPercent | async"
+    color="accent"
+    *ngIf="showProgressBar && (uploadPercent | async) != 100"
+  ></mat-progress-bar> -->
 </div>

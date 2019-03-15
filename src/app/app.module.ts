@@ -16,7 +16,8 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSnackBarModule
 } from "@angular/material";
 
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -27,7 +28,7 @@ import { AngularFireModule } from "@angular/fire";
 import { Keys } from "../../keys";
 
 import { AppComponent } from "./app.component";
-import { UploadComponent } from "./upload/upload.component";
+import { UploadComponent, uploadSnackBar } from "./upload/upload.component";
 import { MainNavComponent } from "./main-nav/main-nav.component";
 import { BannerComponent } from "./banner/banner.component";
 import { HomePageComponent } from "./home-page/home-page.component";
@@ -45,7 +46,8 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
     AboutPageComponent,
     ContactPageComponent,
     AlbumComponent,
-    AlbumDialog
+    AlbumDialog,
+    uploadSnackBar
   ],
   imports: [
     BrowserModule,
@@ -66,10 +68,11 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [AlbumDialog]
+  entryComponents: [AlbumDialog, uploadSnackBar]
 })
 export class AppModule {}
