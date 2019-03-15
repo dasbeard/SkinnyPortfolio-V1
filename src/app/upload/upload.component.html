@@ -2,7 +2,7 @@
   <h1>
     Upload New Album
     <hr />
-
+    <!-- {{ newAlbum.value | json }} -->
     <!-- {{ uploadPercent | async }} -- {{ downloadURL | async }} -->
   </h1>
 
@@ -10,7 +10,7 @@
     class="formContainer"
     [formGroup]="newAlbum"
     #formDirective="ngForm"
-    (ngSubmit)="onSubmit(formDirective)"
+    (ngSubmit)="onSubmit(newAlbum, formDirective)"
   >
     <div class="input">
       <mat-form-field>
@@ -53,6 +53,27 @@
           required
         />
       </mat-form-field>
+
+      <div
+        formArrayName="moreCredits"
+        *ngFor="let credit of moreCredits.controls; let i = index"
+      >
+        <mat-form-field>
+          <input
+            matInput
+            class="credits"
+            placeholder="Credits"
+            [formControlName]="i"
+          />
+        </mat-form-field>
+      </div>
+
+      <mat-icon
+        (click)="addCredit()"
+        aria-label="Example icon-button with a heart icon"
+        >add</mat-icon
+      >
+      <!-- <div (click)="addCredit()">More Credits</div> -->
     </div>
 
     <div class="imageUpload">
@@ -71,7 +92,6 @@
         (change)="imagePreview($event)"
         #fileInput
         formControlName="image"
-        data-max-size="2mb"
       />
       <button
         mat-raised-button

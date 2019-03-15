@@ -10,6 +10,7 @@ import {
 import { DataService } from "../data.service";
 import { Observable } from "rxjs";
 import { MatSnackBar } from "@angular/material";
+import { NG_MODEL_WITH_FORM_CONTROL_WARNING } from "@angular/forms/src/directives";
 
 @Component({
   selector: "app-upload",
@@ -17,29 +18,25 @@ import { MatSnackBar } from "@angular/material";
   styleUrls: ["./upload.component.css"]
 })
 export class UploadComponent implements OnInit {
-  // @Input() inputArray: ArrayType[];
-  // myForm: FormGroup;
-
+  // For Image Preview and Upload
   @ViewChild("albumCover") albumCover;
-
   selectedFile: File = null;
-
-  uploadError = "";
   image = null;
   reader;
 
+  // Show Upload Progress
   showProgressBar: boolean = false;
   uploadPercent: Observable<number>;
-  // uploadPercent: number;
 
-  // !! Fix Error when using validator for max/min length
-  newAlbum = this.fb.group({
-    artist: ["", Validators.required],
-    album: ["", Validators.required],
-    year: ["", Validators.required],
-    credits: ["", Validators.required],
-    image: ["", Validators.required]
-  });
+  newAlbum: FormGroup;
+
+  get moreCredits() {
+    return this.newAlbum.get("moreCredits") as FormArray;
+  }
+
+  addCredit() {
+    this.moreCredits.push(this.fb.control(" "));
+  }
 
   // TODO: Dynamically add more 'credits' inputs on button and push them to an array before sending them to firebase
 
@@ -49,7 +46,17 @@ export class UploadComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // !! Fix Error when using validator for max/min length
+    this.newAlbum = this.fb.group({
+      artist: ["", Validators.required],
+      album: ["", Validators.required],
+      year: ["", Validators.required],
+      credits: ["", Validators.required],
+      image: ["", Validators.required],
+      moreCredits: this.fb.array([])
+    });
+  }
 
   imagePreview(event) {
     this.selectedFile = event.target.files[0];
@@ -62,22 +69,33 @@ export class UploadComponent implements OnInit {
     this.reader.readAsDataURL(event.target.files[0]);
   }
 
-  onSubmit(formDirective: FormGroupDirective): void {
-    // console.log("submitted");
+  onSubmit(formData, formDirective: FormGroupDirective): void {
+    console.log("submitted");
     this.showProgressBar = true;
-    let uploadAlbum = this.newAlbum.value;
-    uploadAlbum.image = this.selectedFile;
+
+    let uploadAlbum = {
+      artist: this.newAlbum.value.artist,
+      album: this.newAlbum.value.album,
+      year: this.newAlbum.value.year,
+      image: this.selectedFile,
+      credits: []
+    };
+
+    let tempCredits = [this.newAlbum.value.credits];
+    let tempCredits2 = this.newAlbum.value.moreCredits;
+
+    uploadAlbum.credits = [...tempCredits, ...tempCredits2];
 
     this.dataService.uploadAlbum(uploadAlbum);
-    // this.uploadPercent = this.dataService.uploadPercent;
     this.dataService.uploadPercent.subscribe(data => {
       console.log(data);
       this.uploadPercent = this.dataService.uploadPercent;
       if (data === 100) {
-        // this.openSnackBar();
+        this.openSnackBar();
       }
     });
     formDirective.resetForm();
+    this.reader = false;
   }
 
   openSnackBar() {
