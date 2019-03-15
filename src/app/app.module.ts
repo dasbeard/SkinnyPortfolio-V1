@@ -17,7 +17,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatProgressBarModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTableModule,
+  MatSortModule
 } from "@angular/material";
 
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -35,6 +37,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { AboutPageComponent } from "./about-page/about-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { AlbumComponent, AlbumDialog } from "./album/album.component";
+import { ListAlbumsComponent } from "./list-albums/list-albums.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
     ContactPageComponent,
     AlbumComponent,
     AlbumDialog,
-    uploadSnackBar
+    uploadSnackBar,
+    ListAlbumsComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,9 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
     MatFormFieldModule,
     MatProgressBarModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],

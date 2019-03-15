@@ -18,6 +18,7 @@ import * as firebase from "firebase";
 export class DataService {
   private albumCollection: AngularFirestoreCollection<AlbumModel>;
   allAlbums: Observable<AlbumModel[]>;
+  singleAlbum: AngularFirestoreDocument<AlbumModel>;
 
   // For Image Upload
   uploadPercent: Observable<number>;
@@ -88,5 +89,10 @@ export class DataService {
       )
     );
     return this.allAlbums;
+  }
+
+  deleteAlbum(albumID) {
+    this.singleAlbum = this.afs.doc(`albums/${albumID}`);
+    this.singleAlbum.delete();
   }
 }
