@@ -9,6 +9,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from "rxjs";
 import { map, finalize } from "rxjs/operators";
 import { AlbumModel } from "../models/Album";
+import { LinkModel } from "../models/linkModel";
 
 import * as firebase from "firebase";
 
@@ -16,6 +17,11 @@ import * as firebase from "firebase";
   providedIn: "root"
 })
 export class DataService {
+  // Link Variables
+  linksCollection: AngularFirestoreCollection<LinkModel>;
+  links: Observable<LinkModel[]>;
+
+  // Album Variables
   private albumCollection: AngularFirestoreCollection<AlbumModel>;
   allAlbums: Observable<AlbumModel[]>;
   singleAlbum: AngularFirestoreDocument<AlbumModel>;
@@ -30,11 +36,14 @@ export class DataService {
   newUploadPercent: number;
 
   constructor(
-    private readonly afs: AngularFirestore,
+    private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
     private storage: AngularFireStorage
   ) {
     this.albumCollection = this.afs.collection<AlbumModel>("albums");
+
+    this.linksCollection = afs.collection<LinkModel>("links");
+    this.links = this.linksCollection.valueChanges();
   }
 
   //  !! Not working with larger files
@@ -57,20 +66,20 @@ export class DataService {
       .pipe(
         finalize(() => {
           this.downloadURL = fileRef.getDownloadURL();
-          console.log(this.downloadURL);
+          // console.log(this.downloadURL);
 
           this.printURL(data);
-          console.log("finaly");
+          // console.log("finaly");
         })
       )
       .subscribe();
   }
 
   async printURL(albumData) {
-    console.log("printing URL");
+    // console.log("printing URL");
 
     this.downloadURL.subscribe(async newUrl => {
-      console.log(await newUrl);
+      // console.log(await newUrl);
       albumData.image = newUrl;
 
       this.albumCollection.add(albumData);
@@ -94,5 +103,24 @@ export class DataService {
   deleteAlbum(albumID) {
     this.singleAlbum = this.afs.doc(`albums/${albumID}`);
     this.singleAlbum.delete();
+  }
+
+  addNewLink(newLink: LinkModel) {
+    console.log(newLink);
+    this.linksCollection.add(newLink);
+  }
+
+  getAllLinks() {
+    // console.log("Get All Albums Called");
+    this.links = this.linksCollection.snapshotChanges().pipe(
+      map(action =>
+        action.map(a => {
+          const data = a.payload.doc.data() as LinkModel;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      )
+    );
+    return this.links;
   }
 }

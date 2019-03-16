@@ -38,6 +38,8 @@ import { AboutPageComponent } from "./about-page/about-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { AlbumComponent, AlbumDialog } from "./album/album.component";
 import { ListAlbumsComponent } from "./list-albums/list-albums.component";
+import { UploadLinkComponent } from './upload-link/upload-link.component';
+import { ListLinksComponent } from './list-links/list-links.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ListAlbumsComponent } from "./list-albums/list-albums.component";
     AlbumComponent,
     AlbumDialog,
     uploadSnackBar,
-    ListAlbumsComponent
+    ListAlbumsComponent,
+    UploadLinkComponent,
+    ListLinksComponent
   ],
   imports: [
     BrowserModule,

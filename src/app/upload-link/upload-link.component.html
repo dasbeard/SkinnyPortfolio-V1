@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>
+    Upload New Link
+    <hr />
+  </h1>
+
+  <form
+    class="formContainer"
+    [formGroup]="newLink"
+    #formDirective="ngForm"
+    (ngSubmit)="onSubmit(newLink, formDirective)"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        class="title"
+        placeholder="Article Title"
+        formControlName="title"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        class="url"
+        placeholder="URL"
+        formControlName="url"
+        required
+        pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      class="btn"
+      type="submit"
+      [disabled]="!newLink.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

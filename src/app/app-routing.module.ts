@@ -5,6 +5,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { AboutPageComponent } from "./about-page/about-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { ListAlbumsComponent } from "./list-albums/list-albums.component";
+import { UploadLinkComponent } from "./upload-link/upload-link.component";
 
 const routes: Routes = [
   {
@@ -35,6 +36,12 @@ const routes: Routes = [
     path: "listAlbum",
     pathMatch: "full",
     component: ListAlbumsComponent,
+    children: []
+  },
+  {
+    path: "uploadLink",
+    pathMatch: "full",
+    component: UploadLinkComponent,
     children: []
   }
 ];

@@ -5,20 +5,10 @@
   padding: 0 2em;
 }
 
-h1 {
+.container h1 {
   text-align: center;
 }
 
-table {
-  width: 100%;
-}
-
-td,
-th {
-  width: 20%;
-}
-
-td img {
-  height: 75px;
-  width: 75px;
+.formContainer {
+  display: block;
 }
