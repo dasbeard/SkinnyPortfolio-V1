@@ -9,6 +9,11 @@
   text-align: center;
 }
 
-.formContainer {
-  display: block;
+mat-form-field {
+  width: 40%;
+  margin-right: 2%;
+}
+
+.formContainer button {
+  max-width: 15%;
 }

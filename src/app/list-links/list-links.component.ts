@@ -15,7 +15,7 @@ export class ListLinksComponent implements OnInit {
   ngOnInit() {
     this.dataService.getAllLinks().subscribe(links => {
       this.allLinks = links;
-      console.log(links);
+      // console.log(links);
     });
   }
 }
