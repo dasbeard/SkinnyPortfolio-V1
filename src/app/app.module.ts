@@ -40,6 +40,7 @@ import { AlbumComponent, AlbumDialog } from "./album/album.component";
 import { ListAlbumsComponent } from "./list-albums/list-albums.component";
 import { UploadLinkComponent } from './upload-link/upload-link.component';
 import { ListLinksComponent } from './list-links/list-links.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ListLinksComponent } from './list-links/list-links.component';
     uploadSnackBar,
     ListAlbumsComponent,
     UploadLinkComponent,
-    ListLinksComponent
+    ListLinksComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

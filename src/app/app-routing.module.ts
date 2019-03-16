@@ -6,18 +6,13 @@ import { AboutPageComponent } from "./about-page/about-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { ListAlbumsComponent } from "./list-albums/list-albums.component";
 import { UploadLinkComponent } from "./upload-link/upload-link.component";
+import { AdminPageComponent } from "./admin-page/admin-page.component";
 
 const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
     component: HomePageComponent,
-    children: []
-  },
-  {
-    path: "upload",
-    pathMatch: "full",
-    component: UploadComponent,
     children: []
   },
   {
@@ -33,17 +28,36 @@ const routes: Routes = [
     children: []
   },
   {
-    path: "listAlbum",
-    pathMatch: "full",
-    component: ListAlbumsComponent,
-    children: []
+    path: "admin",
+    component: AdminPageComponent,
+    children: [
+      { path: "", component: UploadComponent },
+      { path: "uploadLink", component: UploadLinkComponent },
+      { path: "listAlbums", component: ListAlbumsComponent }
+    ]
   },
   {
-    path: "uploadLink",
-    pathMatch: "full",
-    component: UploadLinkComponent,
-    children: []
+    path: "**",
+    component: HomePageComponent
   }
+  // {
+  //   path: "upload",
+  //   pathMatch: "full",
+  //   component: UploadComponent,
+  //   children: []
+  // },
+  // {
+  //   path: "listAlbum",
+  //   pathMatch: "full",
+  //   component: ListAlbumsComponent,
+  //   children: []
+  // },
+  // {
+  //   path: "uploadLink",
+  //   pathMatch: "full",
+  //   component: UploadLinkComponent,
+  //   children: []
+  // },
 ];
 
 @NgModule({

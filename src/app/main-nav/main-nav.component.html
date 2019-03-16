@@ -16,9 +16,7 @@
       <a mat-list-item [routerLink]="['']">Home</a>
       <a mat-list-item [routerLink]="['about']">About</a>
       <a mat-list-item [routerLink]="['contact']">Contact</a>
-      <a mat-list-item [routerLink]="['upload']">Upload</a>
-      <a mat-list-item [routerLink]="['listAlbum']">ListAlbums</a>
-      <a mat-list-item [routerLink]="['uploadLink']">Upload Link</a>
+      <a mat-list-item [routerLink]="['admin']">Admin</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -30,9 +28,7 @@
       <a [routerLink]="['']">Home</a>
       <a [routerLink]="['about']">About</a>
       <a [routerLink]="['contact']">Contact</a>
-      <a [routerLink]="['upload']">Upload</a>
-      <a [routerLink]="['listAlbum']">ListAlbums</a>
-      <a [routerLink]="['uploadLink']">Upload Link</a>
+      <a [routerLink]="['admin']">Admin</a>
     </mat-toolbar>
 
     <mat-toolbar color="black" *ngIf="(isHandset$ | async)">
