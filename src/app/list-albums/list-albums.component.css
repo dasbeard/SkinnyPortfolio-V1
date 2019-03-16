@@ -1,13 +1,24 @@
-table {
-  width: 100%;
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 4em auto 0;
+  padding: 0 2em;
 }
 
-.mat-form-field {
-  font-size: 14px;
+h1 {
+  text-align: center;
+}
+
+table {
   width: 100%;
 }
 
 td,
 th {
-  width: 25%;
+  width: 20%;
+}
+
+td img {
+  height: 50px;
+  width: 50px;
 }

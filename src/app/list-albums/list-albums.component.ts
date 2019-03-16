@@ -13,12 +13,11 @@ export class ListAlbumsComponent implements OnInit {
   allAlbums: AlbumModel[];
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ["id", "artist", "album", "year", "delete"];
+  displayedColumns: string[] = ["cover", "artist", "album", "year", "delete"];
 
   constructor(private dataService: DataService) {
     this.dataService.getAllAlbums().subscribe(data => {
       this.allAlbums = data;
-      console.log(this.allAlbums);
     });
   }
   ngOnInit() {}

@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   constructor(private dataService: DataService) {
     this.dataService.getAllAlbums().subscribe(data => {
       this.allAlbums = data;
-      console.log(this.allAlbums);
+      // console.log(this.allAlbums);
     });
   }
 
