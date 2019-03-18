@@ -19,7 +19,8 @@ import {
   MatProgressBarModule,
   MatSnackBarModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatButtonToggleModule
 } from "@angular/material";
 
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -38,9 +39,10 @@ import { AboutPageComponent } from "./about-page/about-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { AlbumComponent, AlbumDialog } from "./album/album.component";
 import { ListAlbumsComponent } from "./list-albums/list-albums.component";
-import { UploadLinkComponent } from './upload-link/upload-link.component';
-import { ListLinksComponent } from './list-links/list-links.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
+import { UploadLinkComponent } from "./upload-link/upload-link.component";
+import { ListLinksComponent } from "./list-links/list-links.component";
+import { AdminPageComponent } from "./admin-page/admin-page.component";
+import { AdminLinksComponent } from "./admin-links/admin-links.component";
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ListAlbumsComponent,
     UploadLinkComponent,
     ListLinksComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AdminLinksComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],

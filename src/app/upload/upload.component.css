@@ -1,8 +1,7 @@
 .container {
   width: 80%;
   max-width: 900px;
-  margin: 4em auto 0;
-  /* outline: 1px solid green; */
+  margin: 0.5em auto 0;
   padding: 0 2em;
 }
 

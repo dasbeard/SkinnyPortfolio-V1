@@ -1,11 +1,33 @@
 <div class="container">
-  <p>
-    admin-page works!
-  </p>
-
-  <a [routerLink]="['/admin']">Upload New Album</a>
-  <a [routerLink]="['listAlbums']">Display All Albums</a>
-  <a [routerLink]="['uploadLink']">Add New Link</a>
-
-  <router-outlet></router-outlet>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle
+      value="uploadAlbum"
+      [routerLink]="['/admin']"
+      routerLinkActive="mat-button-toggle-checked"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Upload New Album
+    </mat-button-toggle>
+    <mat-button-toggle
+      value="allAlbums"
+      [routerLink]="['listAlbums']"
+      routerLinkActive="mat-button-toggle-checked"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Delete Album
+    </mat-button-toggle>
+    <mat-button-toggle
+      value="uploadLink"
+      [routerLink]="['uploadLink']"
+      routerLinkActive="mat-button-toggle-checked"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Add New Link
+    </mat-button-toggle>
+    <mat-button-toggle
+      value="allLinks"
+      [routerLink]="['listLinks']"
+      routerLinkActive="mat-button-toggle-checked"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Delete Link
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 </div>
+<router-outlet></router-outlet>

@@ -20,6 +20,7 @@ export class DataService {
   // Link Variables
   linksCollection: AngularFirestoreCollection<LinkModel>;
   links: Observable<LinkModel[]>;
+  singleLink: AngularFirestoreDocument<LinkModel>;
 
   // Album Variables
   private albumCollection: AngularFirestoreCollection<AlbumModel>;
@@ -103,6 +104,11 @@ export class DataService {
   deleteAlbum(albumID) {
     this.singleAlbum = this.afs.doc(`albums/${albumID}`);
     this.singleAlbum.delete();
+  }
+
+  deleteLink(linkID: string) {
+    this.singleLink = this.afs.doc(`links/${linkID}`);
+    this.singleLink.delete();
   }
 
   addNewLink(newLink: LinkModel) {

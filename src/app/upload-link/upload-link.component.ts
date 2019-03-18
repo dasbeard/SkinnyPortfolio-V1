@@ -22,7 +22,8 @@ export class UploadLinkComponent implements OnInit {
   ngOnInit() {
     this.newLink = this.fb.group({
       url: ["", Validators.required],
-      title: ["", Validators.required]
+      title: ["", Validators.required],
+      description: ["", Validators.required]
     });
 
     // this.dataService.getAllLinks().subscribe(links => {

@@ -1,5 +1,8 @@
 <div class="container">
-  <h1>Delete Album</h1>
+  <h1>
+    Delete Album
+    <hr />
+  </h1>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="allAlbums">
       <ng-container matColumnDef="cover">
@@ -27,8 +30,8 @@
       </ng-container>
 
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Delete</th>
-        <td mat-cell *matCellDef="let row">
+        <th class="delete" mat-header-cell *matHeaderCellDef>Delete</th>
+        <td class="delete" mat-cell *matCellDef="let row">
           <a mat-flat-button color="warn" (click)="delete(row.id)">Delete</a>
         </td>
       </ng-container>

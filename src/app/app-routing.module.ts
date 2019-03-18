@@ -7,6 +7,7 @@ import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { ListAlbumsComponent } from "./list-albums/list-albums.component";
 import { UploadLinkComponent } from "./upload-link/upload-link.component";
 import { AdminPageComponent } from "./admin-page/admin-page.component";
+import { AdminLinksComponent } from "./admin-links/admin-links.component";
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
     children: [
       { path: "", component: UploadComponent },
       { path: "uploadLink", component: UploadLinkComponent },
-      { path: "listAlbums", component: ListAlbumsComponent }
+      { path: "listAlbums", component: ListAlbumsComponent },
+      { path: "listLinks", component: AdminLinksComponent }
     ]
   },
   {
