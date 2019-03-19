@@ -112,8 +112,16 @@ export class DataService {
   }
 
   addNewLink(newLink: LinkModel) {
-    console.log(newLink);
-    this.linksCollection.add(newLink);
+    // console.log(newLink);
+    if (
+      newLink.url.substring(0, 7) != "http://" &&
+      newLink.url.substring(0, 8) != "https://"
+    ) {
+      newLink.url = "http://" + newLink.url;
+      this.linksCollection.add(newLink);
+    } else {
+      this.linksCollection.add(newLink);
+    }
   }
 
   getAllLinks() {

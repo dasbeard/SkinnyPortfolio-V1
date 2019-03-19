@@ -4,3 +4,50 @@
   margin: 0.5em auto 0;
   padding: 0 2em;
 }
+
+.pageContainer {
+  display: grid;
+  grid-template-columns: [lSide] 1.5fr [rSide] 1fr;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.25em;
+}
+
+.about {
+  grid-area: lSide;
+  /* width: 47.5%; */
+}
+
+.about p {
+  margin: 0;
+}
+
+.links {
+  padding: 1em;
+}
+
+.links h3 {
+  text-align: center;
+}
+
+.right {
+  /* outline: 1px solid green; */
+}
+
+.image {
+  grid-area: rSide;
+  height: 350px;
+  width: 350px;
+  margin-left: calc(50% - 175px);
+}
+
+.image img {
+  height: 100%;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  border-radius: 4px;
+}

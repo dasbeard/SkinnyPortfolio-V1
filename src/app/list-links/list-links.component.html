@@ -1,3 +1,7 @@
-<div class="container" *ngFor="let link of allLinks">
-  <p>{{ link.title }} {{ link.url }}</p>
+<div class="container">
+  <div class="links" *ngFor="let link of allLinks">
+    <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+    <p class="separator">-</p>
+    <p class="description">{{ link.description }}</p>
+  </div>
 </div>
