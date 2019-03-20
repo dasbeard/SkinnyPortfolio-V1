@@ -27,6 +27,12 @@
   top: 5px;
 }
 
+.mobileHeader {
+  margin-left: 5%;
+  text-decoration: none;
+  color: white;
+}
+
 .desktopToolbar {
   height: 25px;
   justify-content: space-around;
@@ -37,5 +43,4 @@
   margin: 0 10px;
   display: inline-block;
   text-decoration: none;
-  /* flex: 1 1 auto; */
 }

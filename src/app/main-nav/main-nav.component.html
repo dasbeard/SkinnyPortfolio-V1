@@ -32,6 +32,8 @@
     </mat-toolbar>
 
     <mat-toolbar color="black" *ngIf="(isHandset$ | async)">
+      <a [routerLink]="['']" class="mobileHeader">Ryan Shanahan</a>
+
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -42,6 +44,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
+
+    <!-- <app-banner *ngIf="!(isHandset$ | async)"></app-banner> -->
 
     <!-- Add Content Here -->
 
