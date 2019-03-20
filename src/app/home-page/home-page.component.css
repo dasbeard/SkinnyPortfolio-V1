@@ -1,8 +1,8 @@
-/* app-banner {
+app-banner {
   width: 100%;
   display: block;
-  height: 100px;
-} */
+  /* height: 100px; */
+}
 
 .contain {
   margin-top: 20px;

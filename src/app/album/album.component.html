@@ -1,7 +1,32 @@
-<div class="container" (click)="openDialog()" *ngIf="albumInfo != null">
+<!-- <div class="container" (click)="openDialog()" *ngIf="albumInfo != null">
   <div class="image">
     <img src="{{ albumInfo.image }}" alt="" />
   </div>
 
   <p class="artist">{{ albumInfo.artist }} - {{ albumInfo.album }}</p>
+</div> -->
+
+<!-- <div class="test" (click)="openDialog()" *ngIf="albumInfo != null">
+  <div class="image">
+    <img src="{{ albumInfo.image }}" alt="" />
+  </div>
+
+  <p class="artist">{{ albumInfo.artist }} - {{ albumInfo.album }}</p>
+</div> -->
+
+<div
+  class="container mat-elevation-z10"
+  (click)="openDialog()"
+  *ngIf="albumInfo != null"
+>
+  <mat-card class="example-card">
+    <img
+      mat-card-image
+      src="{{ albumInfo.image }}"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p class="artist">{{ albumInfo.artist }} - {{ albumInfo.album }}</p>
+    </mat-card-content>
+  </mat-card>
 </div>

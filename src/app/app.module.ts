@@ -20,6 +20,7 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatSortModule,
+  MatCardModule,
   MatButtonToggleModule
 } from "@angular/material";
 
@@ -85,7 +86,8 @@ import { AdminLinksComponent } from "./admin-links/admin-links.component";
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
