@@ -1,7 +1,9 @@
-app-banner {
-  width: 100%;
-  display: block;
-  /* height: 100px; */
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 2em auto 5em;
+  padding: 0 2em;
+  min-height: 700px;
 }
 
 .contain {
@@ -13,6 +15,6 @@ app-banner {
 }
 
 .albums {
-  width: 30%;
+  width: 32%;
   margin-bottom: 20px;
 }

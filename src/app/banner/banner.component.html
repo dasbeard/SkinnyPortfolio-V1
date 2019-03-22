@@ -1,17 +1,46 @@
-<!-- <div id="container"> -->
-<!-- <a [routerLink]="['about']" class="about">About</a> -->
-
-<img
-  class="bannerImage"
-  src="../../assets/Skinny-BG2.jpg"
-  alt="Ryan Shanahan Banner Image"
-/>
-
-<!-- <div class="hide">
-    <a [routerLink]="['']" class="home">HOME</a>
+<div class="container">
+  <div class="imageContainer">
+    <img
+      class="bannerImage"
+      src="../../assets/Skinny-Test2.2.jpg"
+      alt="Ryan Shanahan Banner Image"
+    />
   </div>
 
-  <a [routerLink]="['contact']" class="contact">Contact</a> -->
-<!-- </div> -->
+  <div class="info">
+    <h1>Ryan Shanahan</h1>
+    <h3>A.K.A. Skinny</h3>
+    <h4>Engineer - Mixer</h4>
+  </div>
 
-<!-- <img src="../../assets/SkinnyBG.png" alt="" /> -->
+  <div class="navigation">
+    <a
+      mat-button
+      [routerLink]="['']"
+      routerLinkActive="colorButton"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home
+    </a>
+    <a
+      mat-button
+      [routerLink]="['about']"
+      routerLinkActive="colorButton"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >About
+    </a>
+    <a
+      mat-button
+      [routerLink]="['contact']"
+      routerLinkActive="colorButton"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Contact
+    </a>
+    <!-- <a
+      mat-button
+      [routerLink]="['admin']"
+      routerLinkActive="mat-button-toggle-checked"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Admin
+    </a> -->
+  </div>
+</div>

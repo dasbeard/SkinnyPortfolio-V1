@@ -21,7 +21,8 @@ import {
   MatTableModule,
   MatSortModule,
   MatCardModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatTabsModule
 } from "@angular/material";
 
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -87,7 +88,8 @@ import { AdminLinksComponent } from "./admin-links/admin-links.component";
     MatTableModule,
     MatSortModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

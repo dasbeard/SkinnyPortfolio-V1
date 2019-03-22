@@ -1,50 +1,50 @@
-#container {
-  max-width: 900px;
-  height: 400px;
-  margin-left: calc(50% - 450px);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url("../../assets/SkinnyBanner-v1.1.png");
+.container {
+  margin: 0 auto 2em;
+  padding: 0;
+  background-color: #000;
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  border-radius: 4px;
+  max-height: 250px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 3fr 0.5fr;
+  grid-template-areas:
+    "image text"
+    "image navigation";
 }
 
-.about {
-  position: absolute;
-  top: 178px;
-  left: 25%;
+.imageContainer {
+  grid-area: image;
 }
 
-.bannerImage {
-  /* grid-area: image; */
+.imageContainer img {
+  height: 100%;
+  margin-left: 10%;
 }
 
-.hide {
-  position: absolute;
-  left: 40%;
-  top: 178px;
-  width: 20%;
-  text-align: center;
-  /* outline: 1px solid red; */
+.info {
+  grid-area: text;
+  text-align: right;
+  margin-right: 30%;
 }
 
-#container a {
-  font-size: 2em;
+.navigation {
+  grid-area: navigation;
+  vertical-align: bottom;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 0;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation a {
   color: #fff;
+  font-size: 1.5em;
   text-decoration: none;
 }
 
-.home {
-  visibility: hidden;
-  font-size: 2.75em;
-  color: #000;
-}
-
-.hide:hover .home {
-  /* visibility: hidden; */
-  visibility: visible;
-}
-
-.contact {
-  position: absolute;
-  top: 178px;
-  right: 25%;
+.colorButton {
+  background-color: red;
 }

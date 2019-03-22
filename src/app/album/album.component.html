@@ -19,14 +19,15 @@
   (click)="openDialog()"
   *ngIf="albumInfo != null"
 >
-  <mat-card class="example-card">
+  <mat-card>
     <img
       mat-card-image
       src="{{ albumInfo.image }}"
       alt="Photo of a Shiba Inu"
     />
     <mat-card-content>
-      <p class="artist">{{ albumInfo.artist }} - {{ albumInfo.album }}</p>
+      <p class="artist">{{ albumInfo.artist }}</p>
+      <p>{{ albumInfo.album }}</p>
     </mat-card-content>
   </mat-card>
 </div>
