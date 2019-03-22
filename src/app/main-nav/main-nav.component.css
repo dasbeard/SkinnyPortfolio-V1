@@ -7,8 +7,6 @@ mat-sidenav-container {
 
 .sidenav-container {
   height: 100%;
-
-  /* background-image: url("../../assets/Skinny-BG2.jpg"); */
 }
 
 .sidenav-container::before {
@@ -26,19 +24,6 @@ mat-sidenav-container {
   /* filter: saturate(0.5); */
   filter: opacity(0.75);
 }
-
-/* .sidenav-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../assets/SkinnyTest-v1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .sidenav {
   width: 200px;
