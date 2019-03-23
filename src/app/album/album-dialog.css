@@ -1,5 +1,5 @@
 .mat-dialog-content {
-  max-height: 80vh;
+  max-height: 85vh;
 }
 
 .container {
@@ -24,17 +24,18 @@
 }
 
 .credits {
-  display: inline-block;
-  display: flex;
-  /* text-align: center; */
-  justify-content: center;
-  padding: 0 10px;
+  display: inline-flex;
+  text-align: center;
 }
 
-.credits h4:nth-child(even)::before {
+.credits h4:not(:first-child):before {
   content: "-";
+  padding: 0 5px;
+  font-size: 0.75em;
 }
 
-.credits h4:nth-child(even)::after {
-  content: "-";
+@media all and (min-width: 0) and (max-width: 415px) and (orientation: portrait) {
+  .credits h4 {
+    font-size: 0.9em;
+  }
 }
