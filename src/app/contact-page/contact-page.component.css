@@ -65,6 +65,9 @@ a:hover {
   height: 45px;
   width: 45px;
 }
+.social svg:hover {
+  fill: rgb(57, 108, 247);
+}
 
 /* mobile-large */
 @media all and (min-width: 0) and (max-width: 415px) and (orientation: portrait) {
