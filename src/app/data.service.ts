@@ -41,7 +41,9 @@ export class DataService {
     private afAuth: AngularFireAuth,
     private storage: AngularFireStorage
   ) {
-    this.albumCollection = this.afs.collection<AlbumModel>("albums");
+    this.albumCollection = this.afs.collection<AlbumModel>("albums", ref =>
+      ref.orderBy("year", "asc")
+    );
 
     this.linksCollection = afs.collection<LinkModel>("links");
     this.links = this.linksCollection.valueChanges();
@@ -94,10 +96,12 @@ export class DataService {
         action.map(a => {
           const data = a.payload.doc.data() as AlbumModel;
           const id = a.payload.doc.id;
+          // console.log(data);
           return { id, ...data };
         })
       )
     );
+
     return this.allAlbums;
   }
 

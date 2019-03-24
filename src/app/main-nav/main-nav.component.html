@@ -13,7 +13,7 @@
     position="end"
   >
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['']">Home</a>
+      <a mat-list-item [routerLink]="['']">Discography</a>
       <a mat-list-item [routerLink]="['about']">About</a>
       <a mat-list-item [routerLink]="['contact']">Contact</a>
       <!-- <a mat-list-item [routerLink]="['admin']">Admin</a> -->
@@ -32,7 +32,7 @@
     </mat-toolbar> -->
     <mat-toolbar
       color="black"
-      class="desktopToolbar"
+      class="desktopToolbar mat-elevation-z10"
       *ngIf="!(isHandset$ | async)"
     >
       <div class="info">
@@ -67,7 +67,7 @@
           [routerLink]="['']"
           routerLinkActive="colorButton"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Home
+          >Discography
         </a>
         <a
           mat-button
