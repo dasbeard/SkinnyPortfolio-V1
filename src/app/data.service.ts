@@ -38,7 +38,7 @@ export class DataService {
 
   constructor(
     private afs: AngularFirestore,
-    private afAuth: AngularFireAuth,
+    // private afAuth: AngularFireAuth,
     private storage: AngularFireStorage
   ) {
     this.albumCollection = this.afs.collection<AlbumModel>("albums", ref =>
@@ -49,7 +49,6 @@ export class DataService {
     this.links = this.linksCollection.valueChanges();
   }
 
-  //  !! Not working with larger files
   uploadAlbum(data) {
     // console.log(data);
 
@@ -105,6 +104,7 @@ export class DataService {
     return this.allAlbums;
   }
 
+  // Todo: Delete image when deleting album
   deleteAlbum(albumID) {
     this.singleAlbum = this.afs.doc(`albums/${albumID}`);
     this.singleAlbum.delete();

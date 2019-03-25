@@ -45,6 +45,7 @@ import { UploadLinkComponent } from "./upload-link/upload-link.component";
 import { ListLinksComponent } from "./list-links/list-links.component";
 import { AdminPageComponent } from "./admin-page/admin-page.component";
 import { AdminLinksComponent } from "./admin-links/admin-links.component";
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AdminLinksComponent } from "./admin-links/admin-links.component";
     UploadLinkComponent,
     ListLinksComponent,
     AdminPageComponent,
-    AdminLinksComponent
+    AdminLinksComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
