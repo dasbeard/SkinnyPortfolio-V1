@@ -46,10 +46,10 @@
 }
 
 .desktopToolbar {
-  background-image: url("../../assets/sound-3.3.svg");
+  /* background-image: url("../../assets/sound-3.3.svg");
   background-position: 50% 49%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 
   text-shadow: 0 2px 2px #000;
 
@@ -92,7 +92,7 @@
 }
 
 .navigation {
-  height: 35px;
+  /* height: 35px; */
   display: flex;
   justify-content: space-around;
 }
@@ -105,8 +105,14 @@
 }
 
 .navigation a:hover {
-  /* color: rgb(57, 108, 247); */
+  color: rgb(66, 66, 66);
   /* color: red; */
+}
+
+.admin {
+  position: relative;
+  top: -40px;
+  left: 77%;
 }
 
 .colorButton {

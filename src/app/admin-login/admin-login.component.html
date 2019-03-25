@@ -1,9 +1,13 @@
-<div class="container" *ngIf="(auth.user$ | async) as user; else login">
-  <button (click)="auth.signOut()">Sign Out</button>
+<div class="container">
+  <div class="container" *ngIf="(auth.user$ | async) as user; else login">
+    <!-- <button (click)="auth.signOut()">Sign Out</button> -->
 
-  <app-admin-page></app-admin-page>
+    <app-admin-page></app-admin-page>
+  </div>
+
+  <ng-template #login class="login">
+    <button class="loginBtn" mat-raised-button (click)="auth.googleSignIn()">
+      Login to Edit
+    </button>
+  </ng-template>
 </div>
-
-<ng-template #login>
-  <button (click)="auth.googleSignIn()">Login With Google</button>
-</ng-template>

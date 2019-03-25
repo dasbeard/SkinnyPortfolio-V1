@@ -5,19 +5,20 @@ import { auth } from "firebase/app";
 import { AngularFireAuth } from "@angular/fire/auth";
 import {
   AngularFirestore,
-  AngularFirestoreDocument
+  AngularFirestoreDocument,
+  AngularFirestoreCollection
 } from "@angular/fire/firestore";
 
 import { Observable, of } from "rxjs";
 import { switchMap } from "rxjs/operators";
-
-import * as firebase from "firebase";
+import { async } from "@angular/core/testing";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   user$: Observable<any>;
+  isLoggedIn: boolean = false;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -27,8 +28,10 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          return this.afs.doc(`user/${user.uid}`).valueChanges();
+          this.isLoggedIn = true;
+          return this.afs.doc(`admins/${user.uid}`).valueChanges();
         } else {
+          this.isLoggedIn = false;
           return of(null);
         }
       })
@@ -41,19 +44,12 @@ export class AuthService {
       prompt: "select_account"
     });
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
-  }
-
-  private updateUserData(user) {
-    const userRef: AngularFirestoreDocument = this.afs.doc(`user/${user.uid}`);
-
-    const data = {
-      uid: user.uid
-    };
+    return credential.user;
   }
 
   async signOut() {
     await this.afAuth.auth.signOut();
-    this.router.navigate(["/"]);
+    this.isLoggedIn = false;
+    // this.router.navigate(["/"]);
   }
 }

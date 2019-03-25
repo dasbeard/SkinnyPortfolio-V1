@@ -2,7 +2,9 @@
   width: 80%;
   max-width: 900px;
   margin: 0.5em auto 0;
-  padding: 0 2em;
+  padding: 1.5em 2em 3em;
+  background-color: rgb(66, 66, 66);
+  border-radius: 4px;
 }
 
 .container h1 {

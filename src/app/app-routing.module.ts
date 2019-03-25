@@ -39,16 +39,7 @@ const routes: Routes = [
       { path: "listLinks", component: AdminLinksComponent }
     ]
   },
-  // {
-  //   path: "admin",
-  //   component: AdminPageComponent,
-  //   children: [
-  //     { path: "", component: UploadComponent },
-  //     { path: "uploadLink", component: UploadLinkComponent },
-  //     { path: "listAlbums", component: ListAlbumsComponent },
-  //     { path: "listLinks", component: AdminLinksComponent }
-  //   ]
-  // },
+
   {
     path: "**",
     component: HomePageComponent

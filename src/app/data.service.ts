@@ -42,7 +42,7 @@ export class DataService {
     private storage: AngularFireStorage
   ) {
     this.albumCollection = this.afs.collection<AlbumModel>("albums", ref =>
-      ref.orderBy("year", "asc")
+      ref.orderBy("year", "desc")
     );
 
     this.linksCollection = afs.collection<LinkModel>("links");
