@@ -44,6 +44,7 @@ export class AuthService {
       prompt: "select_account"
     });
     const credential = await this.afAuth.auth.signInWithPopup(provider);
+    this.isLoggedIn = true;
     return credential.user;
   }
 

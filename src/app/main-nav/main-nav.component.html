@@ -24,7 +24,7 @@
       class="desktopToolbar mat-elevation-z10"
       *ngIf="!(isHandset$ | async)"
     >
-      <div class="info">
+      <!-- <div class="info">
         <div class="socialIcons">
           <a
             href="https://www.instagram.com/engineerskinny/"
@@ -48,14 +48,17 @@
         </div>
         <h1><a [routerLink]="['']">Ryan Shanahan</a></h1>
         <h4>Engineer - Mixer</h4>
-      </div>
+      </div> -->
 
       <div class="navigation">
-        <div class="admin" *ngIf="signOut.isLoggedIn">
-          <button mat-raised-button (click)="signOut.signOut()">
-            Sign Out
-          </button>
-        </div>
+        <button
+          mat-raised-button
+          class="admin"
+          (click)="check.signOut()"
+          *ngIf="check.isLoggedIn"
+        >
+          Sign Out
+        </button>
 
         <div class="links">
           <a

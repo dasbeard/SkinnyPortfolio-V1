@@ -1,10 +1,7 @@
 <div class="container">
-  <!-- <h1 class="header">
-    Discography
-    <hr />
-  </h1> -->
+  <app-banner class="banner"></app-banner>
 
-  <div class="contain">
+  <div class="albumContainer">
     <div class="albums" *ngFor="let album of allAlbums">
       <app-album [albumInfo]="album"></app-album>
     </div>

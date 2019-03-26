@@ -9,7 +9,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* background-image: url("../../assets/lights.jpg"); */
   background-image: url("../../assets/AntelopeCanyon.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -51,16 +50,16 @@
   background-repeat: no-repeat;
   background-size: cover; */
 
+  position: sticky;
+  top: 0;
+  height: 1.15em;
+  margin: 0 auto 1em;
   text-shadow: 0 2px 2px #000;
-
-  /* height: 85px; */
-  margin: 0 auto 0.5em;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.65);
-  justify-content: space-around;
-  align-items: flex-end;
+  justify-content: flex-end;
 }
-
+/* 
 .info {
   display: flex;
 }
@@ -68,13 +67,9 @@
 .info .socialIcons {
   display: flex;
   flex-direction: column;
-  /* margin-top: 5px; */
-  /* position: relative;
-  top: 8px; */
 }
 
 .social {
-  /* margin-left: 1em; */
   margin-right: 0.5em;
   fill: #fff;
   height: 24px;
@@ -90,9 +85,7 @@
 }
 
 .info h1 {
-  /* font-family: "Montserrat", sans-serif; */
   font-size: 1.9em;
-  /* margin-bottom: 5px; */
 }
 .info h1 a {
   color: #fff;
@@ -108,12 +101,19 @@
   font-weight: 200;
   position: relative;
   top: 18px;
-}
+} 
+*/
 
 .navigation {
   /* height: 35px; */
   /* display: flex; */
   /* justify-content: space-around; */
+}
+
+.admin {
+  position: absolute;
+  top: 3em;
+  right: 1em;
 }
 
 .mat-button {
@@ -135,9 +135,9 @@
 }
 
 .admin {
-  position: relative;
+  /* position: relative;
   top: -40px;
-  left: 77%;
+  left: 77%; */
 }
 
 .colorButton {

@@ -14,13 +14,19 @@ export class MainNavComponent {
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
 
-  signOut;
-  myColor = "#ef7070";
+  isLoggedIn;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public auth: AuthService
+    public check: AuthService
   ) {
-    this.signOut = auth.signOut();
+    // this.isLoggedIn = auth.isLoggedIn;
+    // console.log(this.isLoggedIn);
   }
+
+  // signOut() {
+  //   console.log(this.isLoggedIn);
+  //   this.auth.signOut();
+  //   console.log(this.isLoggedIn);
+  // }
 }
