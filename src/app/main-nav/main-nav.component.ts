@@ -14,8 +14,13 @@ export class MainNavComponent {
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
 
+  signOut;
+  myColor = "#ef7070";
+
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public signOut: AuthService
-  ) {}
+    public auth: AuthService
+  ) {
+    this.signOut = auth.signOut();
+  }
 }
