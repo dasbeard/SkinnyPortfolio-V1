@@ -2,6 +2,10 @@
   <app-banner class="banner"></app-banner>
 
   <div class="albumContainer">
+    <h1>
+      Discography
+      <hr />
+    </h1>
     <div class="albums" *ngFor="let album of allAlbums">
       <app-album [albumInfo]="album"></app-album>
     </div>

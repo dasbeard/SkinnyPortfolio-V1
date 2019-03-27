@@ -54,7 +54,7 @@
   border-radius: 4px;
 }
 
-/* mobile-large */
+/* mobile */
 @media all and (min-width: 0) and (max-width: 415px) and (orientation: portrait) {
   .container {
     max-width: 90%;

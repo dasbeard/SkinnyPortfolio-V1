@@ -145,3 +145,36 @@
   border-radius: 0;
   /* width: 25%; */
 }
+
+/* mobile */
+@media all and (min-width: 0) and (max-width: 415px) and (orientation: portrait) {
+  .mobileToolbar {
+    position: sticky;
+    top: 0;
+  }
+}
+
+@media all and (min-width: 415px) and (max-width: 899px) and (orientation: landscape) {
+  .mobileToolbar {
+    position: sticky;
+    top: 0;
+    height: 35px;
+    margin-bottom: 1em;
+  }
+
+  .menuBtn {
+    color: red;
+    position: absolute;
+    right: 15px;
+    top: -2px;
+  }
+  .mobileHeader {
+    /* display: none; */
+  }
+
+  /* .mobileHeader::after {
+    margin-left: 5%;
+    font-size: 0.5em;
+    content: "Engineer - Mixer";
+  } */
+}

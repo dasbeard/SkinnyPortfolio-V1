@@ -36,6 +36,56 @@
 
 @media all and (min-width: 0) and (max-width: 415px) and (orientation: portrait) {
   .credits h4 {
-    font-size: 0.9em;
+    font-size: 0.7em;
+  }
+}
+
+@media all and (min-width: 415px) and (max-width: 899px) and (orientation: landscape) {
+  .mat-dialog-content {
+    /* max-height: 85vh; */
+    /* min-height: 60vh; */
+    /* padding: 1.25em; */
+  }
+  .container {
+    display: grid;
+    grid-template-columns: [image]1fr [info]1fr;
+  }
+
+  .image {
+    grid-area: image;
+    margin: 0 auto;
+    height: 300px;
+  }
+
+  .image img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .info {
+    grid-area: info;
+    height: 50%;
+    margin-top: 15%;
+    margin-right: 15%;
+    display: grid;
+    grid-template-rows: [artist]1fr [album]1fr [credits]auto;
+  }
+
+  .artist {
+    grid-area: artist;
+  }
+
+  .album {
+    grid-area: album;
+  }
+
+  .credits {
+    grid-area: credits;
+    display: block;
+    /* text-align: center; */
+  }
+
+  .credits h4:not(:first-child):before {
+    content: "";
   }
 }

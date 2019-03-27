@@ -86,7 +86,11 @@
       </div>
     </mat-toolbar>
 
-    <mat-toolbar color="black" *ngIf="(isHandset$ | async)">
+    <mat-toolbar
+      color="black"
+      class="mobileToolbar"
+      *ngIf="(isHandset$ | async)"
+    >
       <a [routerLink]="['']" class="mobileHeader">Ryan Shanahan</a>
 
       <button
