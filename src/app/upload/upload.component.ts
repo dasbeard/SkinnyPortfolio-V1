@@ -35,10 +35,23 @@ export class UploadComponent implements OnInit {
   }
 
   addCredit() {
-    this.moreCredits.push(this.fb.control(" "));
+    if(this.newAlbum.value.moreCredits.length > 0){
+      let last = this.newAlbum.value.moreCredits[this.newAlbum.value.moreCredits.length - 1].replace(/\s/g,''); 
+      if (last === ''){
+        return
+      } else {
+        this.moreCredits.push(this.fb.control(""));
+      } 
+    } else {
+      this.moreCredits.push(this.fb.control(""));
+    }
+    
   }
 
-  // TODO: Dynamically add more 'credits' inputs on button and push them to an array before sending them to firebase
+  removeCredit(index: number): void {    
+      const arrayControl = <FormArray>this.newAlbum.controls['moreCredits'];
+      arrayControl.removeAt(index);
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -70,7 +83,7 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit(formData, formDirective: FormGroupDirective): void {
-    console.log("submitted");
+    // console.log("*** submitted ***");
     this.showProgressBar = true;
 
     let uploadAlbum = {
@@ -82,10 +95,14 @@ export class UploadComponent implements OnInit {
     };
 
     let tempCredits = [this.newAlbum.value.credits];
-    let tempCredits2 = this.newAlbum.value.moreCredits;
-
-    uploadAlbum.credits = [...tempCredits, ...tempCredits2];
-
+    let tempCredits2 = this.validateLastCredit(this.newAlbum.value.moreCredits);
+    
+    if(tempCredits2){
+      uploadAlbum.credits = [...tempCredits, ...tempCredits2];
+    } else {
+      uploadAlbum.credits = tempCredits;
+    }
+    
     this.dataService.uploadAlbum(uploadAlbum);
     this.dataService.uploadPercent.subscribe(data => {
       console.log(data);
@@ -94,8 +111,40 @@ export class UploadComponent implements OnInit {
         this.openSnackBar();
       }
     });
+  
+    this.removeAllCredtits(tempCredits2);
     formDirective.resetForm();
     this.reader = false;
+  }
+
+  removeAllCredtits(creditsArray){
+    if(creditsArray){
+      // console.log('If creditsArray - length', creditsArray.length);
+      for (let i in creditsArray) {
+        // console.log('Removing credit', i, 'from array');
+        this.removeCredit(creditsArray[i]);
+      }
+
+      // console.log('removing last credit ');
+      this.removeCredit(creditsArray[0]);
+    } else {
+      // console.log('no array');
+    }
+  }
+
+  validateLastCredit(credits) {
+    // console.log('-- ValidateLastCredit', credits.length);
+    if (credits.length < 1){
+      return 
+    } else {
+      let lastCreditTrim = credits[credits.length -1].replace(/\s/g,'');
+      if (lastCreditTrim === ''){
+        credits.pop();
+        return credits;
+      }
+      return credits;
+      
+    }
   }
 
   openSnackBar() {

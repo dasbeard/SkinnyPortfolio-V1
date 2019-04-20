@@ -45,33 +45,49 @@
       <mat-form-field>
         <input
           matInput
-          class="credits"
           placeholder="Credits"
           formControlName="credits"
           required
-        />
-      </mat-form-field>
-
-      <div
-        formArrayName="moreCredits"
-        *ngFor="let credit of moreCredits.controls; let i = index"
-      >
-        <mat-form-field>
-          <input
-            matInput
-            class="credits"
-            placeholder="Credits"
-            [formControlName]="i"
           />
         </mat-form-field>
+        
+        <div
+        class="moreCredits"
+        formArrayName="moreCredits"
+        *ngFor="let credit of moreCredits.controls; let i = index"
+        >
+        <mat-form-field class="newCredits">
+          <input
+            matInput
+            placeholder="Credits"
+            [formControlName]="i"
+
+          />
+        </mat-form-field>
+        <button 
+          mat-mini-fab 
+          color="primary"
+          class="removeCredit"
+          type="button" 
+          title="Remove Credit"
+          (click)="removeCredit(i)"
+          >
+          <mat-icon>
+            remove
+          </mat-icon>
+        </button>
       </div>
 
-      <mat-icon
-        (click)="addCredit()"
-        aria-label="Example icon-button with a heart icon"
-        >add</mat-icon
-      >
-      <!-- <div (click)="addCredit()">More Credits</div> -->
+      <button mat-raised-button 
+        type="button" 
+        class="addCreditBtn" 
+        title="Add Another Credit"
+        (click)="addCredit()">
+          <mat-icon
+          aria-label="Add Another Credit"
+          >add
+        </mat-icon>
+      </button>
     </div>
 
     <div class="imageUpload">
@@ -96,6 +112,7 @@
         type="button"
         class="fileBtn"
         (click)="fileInput.click()"
+        title="Pick album cover"
       >
         Choose File
       </button>
@@ -106,7 +123,7 @@
       class="btn"
       type="submit"
       [disabled]="!newAlbum.valid"
-    >
+      >
       Submit
     </button>
   </form>
