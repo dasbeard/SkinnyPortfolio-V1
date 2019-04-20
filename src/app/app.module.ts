@@ -22,7 +22,8 @@ import {
   MatSortModule,
   MatCardModule,
   MatButtonToggleModule,
-  MatTabsModule
+  MatTabsModule,
+  MatExpansionModule
 } from "@angular/material";
 
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -64,7 +65,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     ListLinksComponent,
     AdminPageComponent,
     AdminLinksComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +92,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     MatSortModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,7 +2,6 @@
   width: 80%;
   max-width: 900px;
   margin: 0.5em auto 0;
-  padding: 1.5em 2em 3em;
   background-color: rgba(66, 66, 66, 0.75);
   border-radius: 4px;
 }
@@ -14,7 +13,6 @@
 
 table {
   width: 100%;
-  /* text-align: center; */
 }
 
 .title,
@@ -25,13 +23,7 @@ table {
 
 .desc {
   width: 40%;
-  /* text-align: center; */
 }
-
-/* td,
-th {
-  width: 25%;
-} */
 
 .delete {
   text-align: center;

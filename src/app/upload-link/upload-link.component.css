@@ -2,9 +2,12 @@
   width: 80%;
   max-width: 900px;
   margin: 0.5em auto 0;
-  padding: 1.5em 2em 3em;
   background-color: rgb(66, 66, 66);
   border-radius: 4px;
+}
+
+.formContainer{
+  padding: 1.5em 2em 3em;
 }
 
 .container h1 {
