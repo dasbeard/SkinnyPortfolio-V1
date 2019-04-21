@@ -9,7 +9,6 @@ import { UploadLinkComponent } from "./upload-link/upload-link.component";
 import { AdminPageComponent } from "./admin-page/admin-page.component";
 import { AdminLinksComponent } from "./admin-links/admin-links.component";
 import { AdminLoginComponent } from "./admin-login/admin-login.component";
-import { AdminAlbumsComponent } from './admin-albums/admin-albums.component';
 
 const routes: Routes = [
   {
@@ -45,24 +44,7 @@ const routes: Routes = [
     path: "**",
     component: HomePageComponent
   }
-  // {
-  //   path: "upload",
-  //   pathMatch: "full",
-  //   component: UploadComponent,
-  //   children: []
-  // },
-  // {
-  //   path: "listAlbum",
-  //   pathMatch: "full",
-  //   component: ListAlbumsComponent,
-  //   children: []
-  // },
-  // {
-  //   path: "uploadLink",
-  //   pathMatch: "full",
-  //   component: UploadLinkComponent,
-  //   children: []
-  // },
+
 ];
 
 @NgModule({
