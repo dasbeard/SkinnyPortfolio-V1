@@ -46,4 +46,5 @@ Thumbs.db
 
 # API Keys
 keys.ts
-/environments
+
+src/environments
