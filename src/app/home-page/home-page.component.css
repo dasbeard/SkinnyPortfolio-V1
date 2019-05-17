@@ -1,16 +1,13 @@
 .container {
   width: 80%;
-  /* height: 100%; */
   max-width: 900px;
   margin: 0 auto 2em;
   padding: 0 2em;
-
   display: grid;
   grid-template-columns: [lSide]1fr [rSide]2fr;
 }
 
 .banner {
-  /* outline: 1px solid green; */
   grid-area: lSide;
   max-width: 300px;
   height: 100%;
@@ -21,12 +18,7 @@
 
 .albumContainer {
   grid-area: rSide;
-  /* outline: 1px solid red; */
   min-width: 100%;
-  /* height: 100%; */
-
-  /* margin-top: 2em;
-  */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -39,6 +31,7 @@
 .albums {
   cursor: pointer;
   width: 45%;
+  height: 325px;
   margin-left: 1em;
   margin-bottom: 20px;
   background-color: rgba(66, 66, 66, 0.95);

@@ -78,6 +78,10 @@ a:hover {
   fill: rgb(57, 108, 247);
 }
 
+.filter {
+  filter: drop-shadow(0 5px 2px rgba(0, 0, 0, 1));
+}
+
 /* mobile-large */
 @media all and (min-width: 0) and (max-width: 415px) and (orientation: portrait) {
   .container {
