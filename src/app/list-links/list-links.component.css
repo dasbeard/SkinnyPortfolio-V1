@@ -3,11 +3,12 @@
   width: 100%;
 }
 
-.links {
+.link {
+  display: inline-block;
   /* outline: 1px solid green; */
   width: 100%;
+  /* margin-bottom: 0.5em; */
   border-bottom: 1px solid rgba(125, 125, 125, 0.5);
-  margin-bottom: 0.5em;
 }
 
 .links a {
@@ -21,6 +22,11 @@
 .links a:hover {
   color: rgb(57, 108, 247);
   text-decoration: none;
+}
+
+.links .title{
+  display: inline-block;
+
 }
 
 .links .separator {

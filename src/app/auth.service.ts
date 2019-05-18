@@ -28,7 +28,7 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          this.isLoggedIn = true;
+          this.isLoggedIn = true;        
           return this.afs.doc(`admins/${user.uid}`).valueChanges();
         } else {
           this.isLoggedIn = false;
@@ -51,6 +51,6 @@ export class AuthService {
   async signOut() {
     await this.afAuth.auth.signOut();
     this.isLoggedIn = false;
-    this.router.navigate(["/"]);
+    // this.router.navigate(["/"]);
   }
 }

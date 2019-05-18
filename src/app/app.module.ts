@@ -31,8 +31,8 @@ import { AngularFireStorageModule, StorageBucket } from "@angular/fire/storage";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireModule } from "@angular/fire";
 
-// import { Keys } from "../../keys";
-import { environment } from '../environments/environment.prod';
+import { Keys } from "../../keys";
+// import { environment } from '../environments/environment.prod';
 
 import { AppComponent } from "./app.component";
 import { UploadComponent, uploadSnackBar } from "./upload/upload.component";
@@ -75,7 +75,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(Keys.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,

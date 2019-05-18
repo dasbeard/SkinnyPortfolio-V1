@@ -22,8 +22,8 @@ export class AlbumComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(AlbumDialog, {
       minWidth: "50%",
-      maxWidth: "85%",
-      maxHeight: "80vh",
+      maxWidth: "75%",
+      // maxHeight: "55vh",
       data: {
         album: this.albumInfo
       }
