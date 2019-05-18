@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
 import { AlbumModel } from "../../models/Album";
-
-import { Observable } from "rxjs";
-import { trigger, transition, style, animate, state, query, stagger, keyframes } from '@angular/animations';
+// import { Observable } from "rxjs";
+import { trigger, style, state } from '@angular/animations';
+import { albumAnimationTransition } from '../animations';
 
 @Component({
   selector: "app-home-page",
@@ -12,28 +12,28 @@ import { trigger, transition, style, animate, state, query, stagger, keyframes }
   animations: [
     trigger('fadeIn', [
 
-      transition('void =>*', [
+      state('for', style({
+      }), {params: {timing1: 'timing'}}), // default parameters values required
+      
+      albumAnimationTransition
 
-        query(':enter', style({ opacity: 0 }), {optional: true}),
-        query(':enter', stagger('300ms', [
-          animate('1s 1.2s ease-in', keyframes([
-            style({opacity: 0, transform: 'translateY(175px)', offset: 0}),
-            style({opacity: 0.75, transform: 'translateY(-10px)', offset: 0.3}),
-            style({opacity: 1, transform: 'translateY(0)', offset: 1})
-          ]))
-        ]))
-      ])
-    ])  
+    ])
+   
   ]
 })
 
 
 export class HomePageComponent implements OnInit {
   allAlbums: AlbumModel[];
+  animate:boolean = false;
+  timing: string = '1.2s';
 
   constructor(private dataService: DataService) {
     this.dataService.getAllAlbums().subscribe(data => {
       this.allAlbums = data;
+      if (this.dataService.initialHome){
+        this.timing = '.05s'
+      }
     });
   }
 

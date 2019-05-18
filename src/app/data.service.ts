@@ -36,6 +36,12 @@ export class DataService {
   private uploadTask: firebase.storage.UploadTask;
   newUploadPercent: number;
 
+
+  // for Initial Animation --- Testing ---
+  initialHome:boolean = false;
+  initialLinks:boolean = false;
+
+
   constructor(
     private afs: AngularFirestore,
     // private afAuth: AngularFireAuth,
