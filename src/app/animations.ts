@@ -20,9 +20,23 @@ export let albumAnimationTransition =
             transition('void =>*', [
 
             query(':enter', style({ opacity: 0 }), {optional: true}),
-                animate('.9s ease-in', keyframes([
+                animate('.8s ease-in', keyframes([
                 style({opacity: 0, transform: 'translateX(-175px)', offset: 0}),
                 style({opacity: 0.5, transform: 'translateX(5px)', offset: 0.5}),
+                style({opacity: 1, transform: 'translateX(0)', offset: 1})
+                ]))
+        ])
+    ]);
+
+    export let slideLeft = 
+        trigger('slideLeft', [
+
+            transition('void =>*', [
+
+            query(':enter', style({ opacity: 0 }), {optional: true}),
+                animate('.8s ease-in', keyframes([
+                style({opacity: 0, transform: 'translateX(175px)', offset: 0}),
+                style({opacity: 0.5, transform: 'translateX(-5px)', offset: 0.5}),
                 style({opacity: 1, transform: 'translateX(0)', offset: 1})
                 ]))
         ])
