@@ -8,12 +8,10 @@ import { DataService } from '../data.service';
   templateUrl: "./banner.component.html",
   styleUrls: ["./banner.component.css"],
   animations: [
+    // Main Image
     trigger('slide', [
       transition('*<=>*', [ 
         style({opacity: 0}),
-        // 1.3s ease-in
-
-
         animate('1.3s ease-in', keyframes([
             style({opacity: 0, transform: 'translateX(95%) translateY(60%) scale(2)' }),
             style({opacity: 0.99, transform: 'translateX(95%) translateY(60%) scale(2)' }),
@@ -22,6 +20,7 @@ import { DataService } from '../data.service';
       ])
     ]),
     
+    // Heading Text
     trigger('fadeIn', [
       transition('*<=>*', [ 
         style({opacity: 0}),
@@ -35,11 +34,20 @@ import { DataService } from '../data.service';
 export class BannerComponent implements OnInit {
 
 
-  animateTime: string = '.2s';
-  firstVisit:boolean=false;
+  // animateTime: string = '.2s';
+  disableSlideImageAnimation:boolean=false;
+  handset: boolean;
+  firstVisit: boolean;
 
   constructor(private dataService: DataService) {
+    this.handset = this.dataService.isHandset;
     this.firstVisit = dataService.initialHome;
+
+    if(this.handset || this.firstVisit){
+      // console.log('no animation');
+      this.disableSlideImageAnimation = true;
+    }
+
   }
 
   ngOnInit() {}

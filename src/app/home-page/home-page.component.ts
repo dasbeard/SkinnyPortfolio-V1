@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
 import { AlbumModel } from "../../models/Album";
-// import { Observable } from "rxjs";
 import { trigger, style, state } from '@angular/animations';
 import { albumAnimationTransition } from '../animations';
 
@@ -31,10 +30,12 @@ export class HomePageComponent implements OnInit {
   constructor(private dataService: DataService) {
     this.dataService.getAllAlbums().subscribe(data => {
       this.allAlbums = data;
-      if (this.dataService.initialHome){
+      if (this.dataService.initialHome || this.dataService.isHandset){
+        
         this.timing = '.05s'
       }
     });
+    
   }
 
   ngOnInit() {}

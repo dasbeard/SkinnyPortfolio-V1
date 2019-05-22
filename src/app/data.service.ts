@@ -40,6 +40,7 @@ export class DataService {
   // for Initial Animation --- Testing ---
   initialHome:boolean = false;
   initialLinks:boolean = false;
+  isHandset: boolean;
 
 
   constructor(

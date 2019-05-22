@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { AuthService } from "../auth.service";
+import { DataService } from '../data.service';
 
 @Component({
   selector: "app-main-nav",
@@ -13,20 +14,24 @@ export class MainNavComponent {
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
+  
+  // Saftey
+  // isHandset$: Observable<boolean> = this.breakpointObserver
+  //   .observe(Breakpoints.Handset)
+  //   .pipe(map(result => result.matches));
 
   isLoggedIn;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public check: AuthService
+    public check: AuthService,
+    private dataservice: DataService
   ) {
-    // this.isLoggedIn = auth.isLoggedIn;
-    // console.log(this.isLoggedIn);
+    this.isHandset$.subscribe(result => {
+      // console.log(result);
+      this.dataservice.isHandset = result;
+    })
   }
 
-  // signOut() {
-  //   console.log(this.isLoggedIn);
-  //   this.auth.signOut();
-  //   console.log(this.isLoggedIn);
-  // }
+  
 }
