@@ -4,7 +4,7 @@
   *ngIf="albumInfo != null"
 >
   <div class="image" >
-    <img class="mat-elevation-z10" src="{{ albumInfo.image }}" alt="" />
+    <img class="mat-elevation-z10" src="{{ albumInfo.image }}" alt="{{ albumInfo.artist }} {{ albumInfo.album }} album cover" />
   </div>
 
   <div class="info">
@@ -13,29 +13,3 @@
   </div>
 </div>
 
-<!-- <div class="test" (click)="openDialog()" *ngIf="albumInfo != null">
-  <div class="image">
-    <img src="{{ albumInfo.image }}" alt="" />
-  </div>
-
-  <p class="artist">{{ albumInfo.artist }} - {{ albumInfo.album }}</p>
-</div>
-
-<div
-class="container mat-elevation-z10"
-(click)="openDialog()"
-*ngIf="albumInfo != null"
->
-<mat-card>
-  <img
-  mat-card-image
-  src="{{ albumInfo.image }}"
-  alt="cover image of {{ albumInfo.album }} by {{ albumInfo.artist }}"
-  />
-  <mat-card-content>
-    <p class="artist">{{ albumInfo.artist }}</p>
-    <p class="album">{{ albumInfo.album }}</p>
-  </mat-card-content>
-</mat-card>
-</div>
--->
